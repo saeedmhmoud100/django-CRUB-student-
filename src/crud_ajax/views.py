@@ -56,3 +56,14 @@ class UpdateCrudUser(View):
             'user': user
         }
         return JsonResponse(data)
+
+
+
+class DeleteCrudUser(View):
+    def  get(self, request):
+        id1 = request.GET.get('id', None)
+        CrudUser.objects.get(id=id1).delete()
+        data = {
+            'deleted': True
+        }
+        return JsonResponse(data)
