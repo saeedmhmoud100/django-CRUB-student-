@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from crud_ajax import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('crud/',  views.CrudView.as_view(), name='crud_ajax'),
 ]
